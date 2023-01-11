@@ -25,7 +25,6 @@ public class enemy : MonoBehaviour
         if (distance <= MaxDist && distance >= MinDist)
         {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-            Debug.Log(transform.position);
         }
     }
 
