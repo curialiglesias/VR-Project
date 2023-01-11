@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160452273}
-  m_LocalRotation: {x: -0.15619697, y: -0.07699866, z: -0.00915452, w: 0.98467755}
-  m_LocalPosition: {x: -0.008, y: 0.0065, z: -0.003}
+  m_LocalRotation: {x: -0.19209862, y: 0.0049067666, z: -0.0020292266, w: 0.98136127}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4511655667520052993}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -18, y: -9, z: 0.363}
+  m_LocalEulerAnglesHint: {x: -22.149, y: 0.644, z: -0.363}
 --- !u!1 &1473356728
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,14 +85,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3617355470527145515}
-  m_LocalRotation: {x: -0.155706, y: -0.077986695, z: -0.015392753, w: 0.9845998}
-  m_LocalPosition: {x: 0.008, y: 0.0065, z: -0.003}
+  m_LocalRotation: {x: -0.19209862, y: 0.0049067666, z: -0.0020292266, w: 0.98136127}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4511655667520052993}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -18, y: -9, z: -0.363}
+  m_LocalEulerAnglesHint: {x: -22.149, y: 0.644, z: -0.363}
 --- !u!1 &4511655667520406305
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7755844071717617662, guid: 965c9eae74bc167438f1d0fbd3cfa193, type: 3}
   spawnPoint: {fileID: 1473356729}
-  fireSpeed: 50
+  fireSpeed: 20
 --- !u!114 &1027699429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4511655667520406305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
@@ -288,7 +288,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AttachTransform: {fileID: 1160452274}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4511655667520406305}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca78259e14594b34aa5e44b7265bd939, type: 3}
   m_Name: 
