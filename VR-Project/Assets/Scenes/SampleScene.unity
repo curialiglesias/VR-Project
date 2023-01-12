@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 145774175}
   - component: {fileID: 145774174}
   - component: {fileID: 145774182}
+  - component: {fileID: 145774183}
   m_Layer: 6
   m_Name: XR Origin
   m_TagString: Player
@@ -446,6 +447,20 @@ MonoBehaviour:
   rightGrabRay: {fileID: 1425578655}
   leftDirectGrab: {fileID: 576341302}
   rightDirectGrab: {fileID: 808154365}
+--- !u!114 &145774183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145774173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d419ba729f205dc43bc5da25f94ec18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 0
 --- !u!4 &185568447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3875863367738844256, guid: 087e2a9d318d8b842b11b221d1f79534, type: 3}
@@ -1750,6 +1765,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 145774181}
+    - target: {fileID: 1795205175776290688, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 145774183}
     - target: {fileID: 8397699081987144337, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: m_Name
       value: Mutant

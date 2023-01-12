@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    public playerLife playerHealth;
+    playerLife playerHealth;
     private GameObject Player;
     private float MaxDist = 100;
     private float MinDist = 1;
@@ -42,6 +42,7 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerHealth = collision.collider.GetComponent<playerLife>();
             playerHealth.takeDamage(damage);
         }
     }
