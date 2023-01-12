@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    public playerLife playerHealth;
     private GameObject Player;
     private float MaxDist = 100;
     private float MinDist = 1;
-
+    public int damage = 1;
     public float health = 10f;
     public float MoveSpeed = 2;
 
@@ -34,6 +35,14 @@ public class enemy : MonoBehaviour
         if (health <= 0f)
         {
             Destroy(gameObject);
+        }
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            playerHealth.takeDamage(damage);
         }
     }
 
