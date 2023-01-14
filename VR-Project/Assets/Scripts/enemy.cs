@@ -12,21 +12,30 @@ public class enemy : MonoBehaviour
     public int health = 5;
     public float MoveSpeed = 2;
     public float knockbackForce = 250;
+    private Animator animator;
+    private bool isDead = false;
+    private Rigidbody rb;
+    private Vector3 lastPosition;
 
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
-
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
-
-        if (distance <= MaxDist && distance >= MinDist)
+        if (!isDead)
         {
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
+
+            float distance = Vector3.Distance(transform.position, Player.transform.position);
+
+            if (distance <= MaxDist && distance >= MinDist)
+            {
+                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
         }
     }
 
@@ -35,7 +44,9 @@ public class enemy : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
+            animator.SetTrigger("isDying");
+            Destroy(gameObject,5);
             Debug.Log("Enemy dead");
         }
     }
@@ -53,10 +64,13 @@ public class enemy : MonoBehaviour
             (collision.gameObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
             Destroy(collision.gameObject,1);
-            takeDamage(bulletDamage);
-            Debug.Log("Enemy Damage");
-            //Knockback
-            transform.position -= transform.forward * Time.deltaTime * knockbackForce;
+            if (!isDead)
+            {
+                takeDamage(bulletDamage);
+                Debug.Log("Enemy Damage");
+                //Knockback
+                transform.position -= transform.forward * Time.deltaTime * knockbackForce;
+            }
         }
     }
 
