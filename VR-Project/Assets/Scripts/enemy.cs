@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-    playerLife playerHealth;
     private GameObject Player;
     private float MaxDist = 100;
     private float MinDist = 1;
-    public int damage = 1;
-    public float health = 10f;
+    public int enemyDamage = 1;
+    public int bulletDamage = 1;
+    public int health = 5;
     public float MoveSpeed = 2;
+    public float knockbackForce = 250;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.LookAt(Player.transform);
+        transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
 
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
@@ -29,12 +30,13 @@ public class enemy : MonoBehaviour
         }
     }
 
-    public void takeDamage(float amount)
+    public void takeDamage(int amount)
     {
         health -= amount;
-        if (health <= 0f)
+        if (health <= 0)
         {
             Destroy(gameObject);
+            Debug.Log("Enemy dead");
         }
     }
     
@@ -42,8 +44,19 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            playerHealth = collision.collider.GetComponent<playerLife>();
-            playerHealth.takeDamage(damage);
+            Player.GetComponent<playerLife>().takeDamage(enemyDamage);
+
+        }
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            (collision.gameObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
+            collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(collision.gameObject,1);
+            takeDamage(bulletDamage);
+            Debug.Log("Enemy Damage");
+            //Knockback
+            transform.position -= transform.forward * Time.deltaTime * knockbackForce;
         }
     }
 

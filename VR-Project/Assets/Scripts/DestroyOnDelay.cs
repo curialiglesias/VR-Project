@@ -17,4 +17,9 @@ public class DestroyOnDelay : MonoBehaviour
             Destroy(gameObject, 5);
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Destroy(gameObject);
+    //}
 }

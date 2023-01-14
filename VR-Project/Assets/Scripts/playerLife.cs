@@ -21,7 +21,7 @@ public class playerLife : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            health = maxHealth;
+            Debug.Log("You are dead");
         }
     }
 }
