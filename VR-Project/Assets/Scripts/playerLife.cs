@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class playerLife : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class playerLife : MonoBehaviour
     public int maxHealth;
     public int health;
     public GameObject GameOverPanel;
+    public GameObject RestartingSystem;
     [HideInInspector]
     public bool isDead = false;
 
@@ -30,8 +30,7 @@ public class playerLife : MonoBehaviour
             GameObject.Find("pistol L").SetActive(false);
             GameObject.Find("Spawn").SetActive(false);
             GameOverPanel.SetActive(true);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
+            RestartingSystem.SetActive(true);
         }
     }
 }

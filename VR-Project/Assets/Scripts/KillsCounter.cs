@@ -8,11 +8,10 @@ public class KillsCounter : MonoBehaviour
     [HideInInspector]
     public int kills = -1;
     private TMP_Text tmp;
+    public TMP_Text enemiesKilledText;
 
-    // Start is called before the first frame update
     void Start()
     {
-        kills = -1;
         tmp = GetComponent<TextMeshPro>();
         addKill();
     }
@@ -21,6 +20,7 @@ public class KillsCounter : MonoBehaviour
     {
         kills += 1;
         tmp.text = kills.ToString() + " KILLS";
+        enemiesKilledText.text = "Enemies killed:  " + kills;
         Debug.Log(tmp.text);
     }
 }

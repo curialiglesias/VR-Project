@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hapticOnActivated:
-    intensity: 0.5
+    intensity: 1
     duration: 0.3
   hapticHoverEntered:
     intensity: 0.3
