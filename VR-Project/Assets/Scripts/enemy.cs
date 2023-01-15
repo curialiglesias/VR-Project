@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class enemy : MonoBehaviour
 {
     private GameObject Player;
+    private playerLife playerLife;
+    private GameObject KillsCounterText;
+    private KillsCounter killsCounter;
     private float MaxDist = 100;
     private float MinDist = 1;
     public int enemyDamage = 1;
@@ -22,6 +26,9 @@ public class enemy : MonoBehaviour
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
+        playerLife = Player.GetComponent<playerLife>();
+        KillsCounterText = GameObject.FindWithTag("KillsCounter");
+        killsCounter = KillsCounterText.GetComponent<KillsCounter>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
@@ -30,23 +37,31 @@ public class enemy : MonoBehaviour
     {
         if (!isDead)
         {
-            transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
-
-            float distance = Vector3.Distance(transform.position, Player.transform.position);
-
-            if (distance <= MaxDist && distance >= MinDist)
+            if (playerLife.isDead)
             {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+                animator.SetTrigger("isDancing");
             }
+            else
+            {
+                transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
 
-            if (distance <= 5)
-            {
-                animator.SetBool("isAttacking", true);
-                animator.SetBool("isMoving", false);
-            } else
-            {
-                animator.SetBool("isMoving",true);
-                animator.SetBool("isAttacking", false);
+                float distance = Vector3.Distance(transform.position, Player.transform.position);
+
+                if (distance <= MaxDist && distance >= MinDist)
+                {
+                    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+                }
+
+                if (distance <= 5)
+                {
+                    animator.SetBool("isAttacking", true);
+                    animator.SetBool("isMoving", false);
+                }
+                else
+                {
+                    animator.SetBool("isMoving", true);
+                    animator.SetBool("isAttacking", false);
+                }
             }
         }
     }
@@ -59,6 +74,7 @@ public class enemy : MonoBehaviour
             isDead = true;
             animator.SetTrigger("isDying");
             Destroy(gameObject,5);
+            killsCounter.addKill();
             Debug.Log("Enemy dead");
         }
     }
@@ -68,7 +84,6 @@ public class enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player.GetComponent<playerLife>().takeDamage(enemyDamage);
-
         }
 
         if (collision.gameObject.tag == "Bullet")
