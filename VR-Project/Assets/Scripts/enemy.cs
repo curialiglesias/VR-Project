@@ -16,6 +16,7 @@ public class enemy : MonoBehaviour
     private bool isDead = false;
     private Rigidbody rb;
     private Vector3 lastPosition;
+    private Vector3 lastRotation;
     public GameObject bloodEffect;
 
     private void Start()
@@ -36,6 +37,16 @@ public class enemy : MonoBehaviour
             if (distance <= MaxDist && distance >= MinDist)
             {
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
+
+            if (distance <= 5)
+            {
+                animator.SetBool("isAttacking", true);
+                animator.SetBool("isMoving", false);
+            } else
+            {
+                animator.SetBool("isMoving",true);
+                animator.SetBool("isAttacking", false);
             }
         }
     }

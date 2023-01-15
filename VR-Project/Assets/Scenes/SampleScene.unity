@@ -1887,11 +1887,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -860050208640452699, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1712758165980898198, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1795205175776290688, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: health
