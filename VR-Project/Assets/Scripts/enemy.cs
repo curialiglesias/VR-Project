@@ -21,6 +21,7 @@ public class enemy : MonoBehaviour
     private Rigidbody rb;
     public GameObject bloodEffect;
     private bool isDancing;
+    private float timeColliding = 0f;
 
     private void Start()
     {
@@ -92,6 +93,7 @@ public class enemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Player.GetComponent<playerLife>().takeDamage(enemyDamage);
+            timeColliding = 0f;
         }
 
         if (collision.gameObject.tag == "Bullet")
@@ -117,6 +119,23 @@ public class enemy : MonoBehaviour
             
 
         }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (timeColliding < 1)
+            {
+                timeColliding += Time.deltaTime;
+            }
+            else
+            {
+                Player.GetComponent<playerLife>().takeDamage(enemyDamage);
+                timeColliding = 0f;
+            }
+        }
+
     }
 
 }

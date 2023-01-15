@@ -6,14 +6,13 @@ using TMPro;
 public class KillsCounter : MonoBehaviour
 {
     [HideInInspector]
-    public int kills = -1;
+    public int kills = 0;
     private TMP_Text tmp;
     public TMP_Text enemiesKilledText;
 
     void Start()
     {
         tmp = GetComponent<TextMeshPro>();
-        addKill();
     }
 
     public void addKill()

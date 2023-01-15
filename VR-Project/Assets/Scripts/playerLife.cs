@@ -22,6 +22,7 @@ public class playerLife : MonoBehaviour
     public void takeDamage(int damage)
     {
         health -= damage;
+        Debug.Log("Player Hit");
         if (health <= 0 && isDead == false)
         {
             isDead = true;
