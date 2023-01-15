@@ -9,6 +9,7 @@ TagManager:
   - Right Hand
   - Bullet
   - KillsCounter
+  - GameOverPanel
   layers:
   - Default
   - TransparentFX

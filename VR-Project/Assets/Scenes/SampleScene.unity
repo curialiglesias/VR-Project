@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 0
+  GameOverPanel: {fileID: 1585665742}
   isDead: 0
 --- !u!4 &185568447 stripped
 Transform:
@@ -1794,6 +1795,7 @@ GameObject:
   - component: {fileID: 891958281}
   - component: {fileID: 891958283}
   - component: {fileID: 891958282}
+  - component: {fileID: 891958284}
   m_Layer: 0
   m_Name: KillsCounterText
   m_TagString: KillsCounter
@@ -1955,6 +1957,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &891958284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891958280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf2f245d63835140b9c454b6141c944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kills: -1
 --- !u!1001 &948518697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4046,7 +4061,7 @@ GameObject:
   - component: {fileID: 1585665743}
   m_Layer: 5
   m_Name: GameOverPanel
-  m_TagString: Untagged
+  m_TagString: GameOverPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

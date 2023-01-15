@@ -6,20 +6,21 @@ using TMPro;
 public class KillsCounter : MonoBehaviour
 {
     [HideInInspector]
-    public int kills = 0;
+    public int kills = -1;
     private TMP_Text tmp;
 
     // Start is called before the first frame update
     void Start()
     {
-        kills = 0;
-        tmp = GetComponent<TextMeshProUGUI>();
-        tmp.text = "0 KILLS";
+        kills = -1;
+        tmp = GetComponent<TextMeshPro>();
+        addKill();
     }
 
     public void addKill()
     {
         kills += 1;
         tmp.text = kills.ToString() + " KILLS";
+        Debug.Log(tmp.text);
     }
 }

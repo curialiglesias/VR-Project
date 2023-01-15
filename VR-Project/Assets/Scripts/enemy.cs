@@ -7,8 +7,8 @@ public class enemy : MonoBehaviour
 {
     private GameObject Player;
     private playerLife playerLife;
-    private GameObject KillsCounterText;
-    private KillsCounter killsCounter;
+    private GameObject KillsCounterObject;
+    private KillsCounter KillsCounter;
     private float MaxDist = 100;
     private float MinDist = 1;
     public int enemyDamage = 1;
@@ -19,18 +19,19 @@ public class enemy : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
     private Rigidbody rb;
-    private Vector3 lastPosition;
-    private Vector3 lastRotation;
     public GameObject bloodEffect;
+    private bool isDancing;
 
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
         playerLife = Player.GetComponent<playerLife>();
-        KillsCounterText = GameObject.FindWithTag("KillsCounter");
-        killsCounter = KillsCounterText.GetComponent<KillsCounter>();
+        KillsCounterObject = GameObject.FindWithTag("KillsCounter");
+        KillsCounter = KillsCounterObject.GetComponent<KillsCounter>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        isDancing = false;
+
     }
 
     void FixedUpdate()
@@ -39,10 +40,17 @@ public class enemy : MonoBehaviour
         {
             if (playerLife.isDead)
             {
-                animator.SetTrigger("isDancing");
+                if (isDancing == false)
+                {
+                    animator.SetBool("isDancing", true);
+                    isDancing = true;
+                }
             }
             else
             {
+                animator.SetBool("isDancing", false);
+                isDancing = false;
+
                 transform.LookAt(new Vector3(Player.transform.position.x, transform.position.y, Player.transform.position.z));
 
                 float distance = Vector3.Distance(transform.position, Player.transform.position);
@@ -74,7 +82,7 @@ public class enemy : MonoBehaviour
             isDead = true;
             animator.SetTrigger("isDying");
             Destroy(gameObject,5);
-            killsCounter.addKill();
+            KillsCounterObject.GetComponent<KillsCounter>().addKill();
             Debug.Log("Enemy dead");
         }
     }
