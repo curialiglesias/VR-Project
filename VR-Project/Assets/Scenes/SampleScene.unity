@@ -1885,9 +1885,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -860050208640452699, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712758165980898198, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795205175776290688, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795205175776290688, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8397699081987144337, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: m_Name
       value: Mutant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397699081987144337, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9205725420199600171, guid: 1b0cb97eb3e2e3b46a77451b26793718, type: 3}
       propertyPath: m_RootOrder

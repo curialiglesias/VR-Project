@@ -1220,6 +1220,7 @@ MonoBehaviour:
   health: 5
   MoveSpeed: 2
   knockbackForce: 10
+  bloodEffect: {fileID: 5265008215921215189, guid: d3b6249c788de79449538a86565dd885, type: 3}
 --- !u!54 &-5224496649559598678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1275,7 +1276,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d272126ed65cccf48876593ab685405c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

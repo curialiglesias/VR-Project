@@ -16,6 +16,7 @@ public class enemy : MonoBehaviour
     private bool isDead = false;
     private Rigidbody rb;
     private Vector3 lastPosition;
+    public GameObject bloodEffect;
 
     private void Start()
     {
@@ -63,14 +64,24 @@ public class enemy : MonoBehaviour
         {
             (collision.gameObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            Destroy(collision.gameObject,1);
+            Destroy(collision.gameObject,0.5f);
+
             if (!isDead)
             {
                 takeDamage(bulletDamage);
                 Debug.Log("Enemy Damage");
                 //Knockback
                 transform.position -= transform.forward * Time.deltaTime * knockbackForce;
+
+                // Blood Particles
+                var newBlood = Instantiate(bloodEffect, collision.gameObject.transform.position, Quaternion.identity);
+                newBlood.transform.LookAt(Player.transform);
+                newBlood.transform.position = new Vector3(newBlood.transform.position.x, newBlood.transform.position.y, newBlood.transform.position.z);
+                newBlood.transform.parent = gameObject.transform;
+                Destroy(newBlood.gameObject, 1f);
             }
+            
+
         }
     }
 
