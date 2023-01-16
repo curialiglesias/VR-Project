@@ -17,6 +17,7 @@ public class Clock : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         playerLife = Player.GetComponent<playerLife>();
+        clock = 0.0f;
 
     }
     void Update()

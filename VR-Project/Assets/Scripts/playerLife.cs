@@ -17,6 +17,7 @@ public class playerLife : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        isDead = false;
     }
 
     public void takeDamage(int damage)

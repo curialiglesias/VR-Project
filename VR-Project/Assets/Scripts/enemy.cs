@@ -20,7 +20,7 @@ public class enemy : MonoBehaviour
     private bool isDead = false;
     private Rigidbody rb;
     public GameObject bloodEffect;
-    private bool isDancing;
+    private bool isDancing = false;
     private float timeColliding = 0f;
 
     private void Start()
@@ -32,6 +32,7 @@ public class enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         isDancing = false;
+        timeColliding = 0f;
 
     }
 
@@ -84,7 +85,6 @@ public class enemy : MonoBehaviour
             animator.SetTrigger("isDying");
             Destroy(gameObject,5);
             KillsCounterObject.GetComponent<KillsCounter>().addKill();
-            Debug.Log("Enemy dead");
         }
     }
     
@@ -105,7 +105,7 @@ public class enemy : MonoBehaviour
             if (!isDead)
             {
                 takeDamage(bulletDamage);
-                Debug.Log("Enemy Damage");
+
                 //Knockback
                 transform.position -= transform.forward * Time.deltaTime * knockbackForce;
 

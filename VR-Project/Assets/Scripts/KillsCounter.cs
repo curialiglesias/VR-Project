@@ -13,6 +13,7 @@ public class KillsCounter : MonoBehaviour
     void Start()
     {
         tmp = GetComponent<TextMeshPro>();
+        kills = 0;
     }
 
     public void addKill()
