@@ -10,6 +10,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 .vsconfig
+Two-Pistols-VR_BackUpThisFolder_ButDontShipItWithYourGame/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -53,8 +54,8 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
-*.unitypackage
+#*.apk
+#*.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties

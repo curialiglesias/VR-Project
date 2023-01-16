@@ -5,22 +5,20 @@ using TMPro;
 
 public class KillsCounter : MonoBehaviour
 {
-    [HideInInspector]
-    public int kills = 0;
-    private TMP_Text tmp;
+    private int kills = 0;
+    public TMP_Text killsCounterText;
     public TMP_Text enemiesKilledText;
 
     void Start()
     {
-        tmp = GetComponent<TextMeshPro>();
         kills = 0;
     }
 
     public void addKill()
     {
         kills += 1;
-        tmp.text = kills.ToString() + " KILLS";
+        killsCounterText.text = kills.ToString() + " KILLS";
         enemiesKilledText.text = "Enemies killed:  " + kills;
-        Debug.Log(tmp.text);
+        Debug.Log(killsCounterText.text);
     }
 }

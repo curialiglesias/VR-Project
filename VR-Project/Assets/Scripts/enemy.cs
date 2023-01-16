@@ -8,7 +8,6 @@ public class enemy : MonoBehaviour
     private GameObject Player;
     private playerLife playerLife;
     private GameObject KillsCounterObject;
-    private KillsCounter KillsCounter;
     private float MaxDist = 100;
     private float MinDist = 1;
     public int enemyDamage = 1;
@@ -28,7 +27,6 @@ public class enemy : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         playerLife = Player.GetComponent<playerLife>();
         KillsCounterObject = GameObject.FindWithTag("KillsCounter");
-        KillsCounter = KillsCounterObject.GetComponent<KillsCounter>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         isDancing = false;
